@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: uxmancis <uxmancis@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 13:06:26 by uxmancis          #+#    #+#             */
-/*   Updated: 2023/12/08 17:04:13 by uxmancis         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "minitalk.h"
 
 /*DESCRIPTION:
@@ -26,7 +14,7 @@ void	ft_bin2sign2server(char *bin_nb, int s_pid)
 	int	i;
 
 	i = 0;
-	printf("yes, received bin_nb = %s\n", bin_nb);
+	printf("received bin_nb = %s\n", bin_nb);
 	while (i < 8)
 	{
 		if (bin_nb[i] == '0')
@@ -65,7 +53,7 @@ int	main(int argc, char **argv)
 	while (argv[2][i] != '\0')
 	{
 		ft_strcpy(dec2bin(argv[2][i]), &bin_nb); //get binary of the char.
-		printf("bin = %s\n", bin_nb);
+		//printf("bin = %s\n", bin_nb);
 		ft_bin2sign2server(bin_nb, s_pid); //send binary
 		i++;
 	}

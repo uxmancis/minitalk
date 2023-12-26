@@ -6,7 +6,7 @@
 /*   By: uxmancis <uxmancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:47:28 by uxmancis          #+#    #+#             */
-/*   Updated: 2023/12/08 16:34:51 by uxmancis         ###   ########.fr       */
+/*   Updated: 2023/12/26 19:15:58 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,15 @@ int	ft_atoi(const char *str)
 	return (0);
 }
 
-void	ft_set2zero(char **str, size_t len)
+void	ft_set2zero(int **arr, size_t len)
 {
 	int	i;
 
 	i = 0;
-	(*str)[len] = '\0';
+	(*arr)[len] = '\0';
 	while (len > 1)
 	{
-		(*str)[i] = '0';
+		(*arr)[i] = 0;
 		i++;
 		len--;
 	}
@@ -134,23 +134,33 @@ char	*ft_itoa(int nb)
 	return (str_result);
 }*/
 
-int binary2decimal(char *binary)
+int binary2decimal(int *binary)
 {
     int nb_decimal;
 	int	base;
     int i;
 
-    nb_decimal = 0;
+    //printf("received binary in server:\n");
+	//printf("binary[0] = %d\n", binary[0]);
+	//printf("binary[1] = %d\n", binary[1]);
+	//printf("binary[2] = %d\n", binary[2]);
+	//printf("binary[3] = %d\n", binary[3]);
+	//printf("binary[4] = %d\n", binary[4]);
+	//printf("binary[5] = %d\n", binary[5]);
+	//printf("binary[6] = %d\n", binary[6]);
+	//printf("binary[7] = %d\n", binary[7]);
+	nb_decimal = 0;
 	base = 1;
     i = 7; //start from the rightmost bit
     while (i >= 0)
 	{
-		if (binary[i] == '1')
+		if (binary[i] == 1)
 			nb_decimal = nb_decimal + base; //decimal = 0 + 1, 
 		base = base*2; // 1, 2, 4, 8, 16, 32, ...
 		//printf("i = %d, RTDO nb_decimal = %d, base = %d\n", i, nb_decimal, base);
 		i--;
 	}
+	//printf("barruan, nb_decimal = %d\n", nb_decimal);
 	return (nb_decimal);
 }
 
